@@ -1,5 +1,4 @@
 ﻿using System.Text.Json.Serialization;
-using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
 
 namespace Models;
 

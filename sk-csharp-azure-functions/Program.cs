@@ -1,7 +1,4 @@
 ﻿using System.Text.Json;
-using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Abstractions;
-using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Configurations;
-using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Enums;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -16,7 +13,7 @@ public static class Program
     public static void Main()
     {
         var host = new HostBuilder()
-            .ConfigureFunctionsWorkerDefaults()
+            .ConfigureFunctionsWebApplication()
             .ConfigureAppConfiguration(configuration =>
             {
                 var config = configuration.SetBasePath(Directory.GetCurrentDirectory())
