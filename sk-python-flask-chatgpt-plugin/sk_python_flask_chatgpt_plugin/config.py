@@ -2,9 +2,9 @@ from dataclasses import dataclass
 
 from enum import Enum
 
-import semantic_kernel as sk
+import os
 
-DEFAULT_OPENAI_MODEL = "text-davinci-003"
+DEFAULT_OPENAI_MODEL = "gpt-4o-mini"
 
 
 class AIService(Enum):
@@ -41,7 +41,10 @@ def headers_to_config(headers: dict) -> AIServiceConfig:
 
 def dotenv_to_config(use_azure_openai=True):
     if use_azure_openai:
-        deployment_model_id, api_key, endpoint = sk.azure_openai_settings_from_dot_env()
+        deployment_model_id = os.environ.get("AZURE_OPENAI_DEPLOYMENT_NAME", "")
+        api_key = os.environ.get("AZURE_OPENAI_API_KEY", "")
+        endpoint = os.environ.get("AZURE_OPENAI_ENDPOINT", "")
+        assert deployment_model_id and api_key and endpoint, "Azure OpenAI settings not found"
         return AIServiceConfig(
             deployment_model_id=deployment_model_id,
             endpoint=endpoint,
@@ -49,7 +52,9 @@ def dotenv_to_config(use_azure_openai=True):
             serviceid=AIService.AZURE_OPENAI.value,
         )
     else:
-        api_key, org_id = sk.openai_settings_from_dot_env()
+        api_key = os.environ.get("OPENAI_API_KEY", "")
+        org_id = os.environ.get("OPENAI_ORG_ID", "")
+        assert api_key, "OpenAI settings not found"
         return AIServiceConfig(
             deployment_model_id=DEFAULT_OPENAI_MODEL,
             endpoint=None,
