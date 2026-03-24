@@ -24,7 +24,7 @@ public static class Program
             .ConfigureFunctionsApplicationInsights();
 
         builder.Services.AddSingleton<IOpenApiConfigurationOptions>(_ => s_apiConfigOptions);
-        builder.Services.AddTransient((provider) => CreateKernel(provider));
+        builder.Services.AddTransient<Kernel>((provider) => CreateKernel(provider));
 
         // return JSON with expected lowercase naming
         builder.Services.Configure<JsonSerializerOptions>(options =>
@@ -35,22 +35,18 @@ public static class Program
         builder.Build().Run();
     }
 
-    private static IKernel CreateKernel(IServiceProvider provider)
+    private static Kernel CreateKernel(IServiceProvider provider)
     {
         var kernelSettings = KernelSettings.LoadSettings();
 
-        using ILoggerFactory loggerFactory = LoggerFactory.Create(builder =>
-        {
-            builder
-                .SetMinimumLevel(kernelSettings.LogLevel ?? LogLevel.Warning)
-                .AddConsole()
-                .AddDebug();
-        });
+        var kernelBuilder = Kernel.CreateBuilder();
+        kernelBuilder.Services.AddLogging(c => c
+            .SetMinimumLevel(kernelSettings.LogLevel ?? LogLevel.Warning)
+            .AddConsole()
+            .AddDebug());
+        kernelBuilder.WithCompletionService(kernelSettings);
 
-        return new KernelBuilder()
-            .WithLogger(loggerFactory.CreateLogger<IKernel>())
-            .WithCompletionService(kernelSettings)
-            .Build();
+        return kernelBuilder.Build();
     }
 
     private static readonly OpenApiConfigurationOptions s_apiConfigOptions = new()

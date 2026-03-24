@@ -4,11 +4,13 @@
     <TargetFramework>net10.0</TargetFramework>
     <OutDir>bin</OutDir>
     <NodeApiAssemblyJSModuleType>esm</NodeApiAssemblyJSModuleType>
-    <GenerateNodeApiTypeDefinitionsForReferences>true</GenerateNodeApiTypeDefinitionsForReferences>
+    <GenerateNodeApiTypeDefinitionsForReferences>false</GenerateNodeApiTypeDefinitionsForReferences>
+    <!-- TODO: Re-enable when Microsoft.JavaScript.NodeApi.Generator supports .NET 10 -->
+    <NodeApiGenerateEnabled>false</NodeApiGenerateEnabled>
     <RestorePackagesPath>$(MSBuildThisFileDirectory)/pkg</RestorePackagesPath>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.JavaScript.NodeApi.Generator" Version="0.9.11" />
-    <PackageReference Include="Microsoft.SemanticKernel" Version="0.24.230912.2-preview" />
+    <PackageReference Include="Microsoft.JavaScript.NodeApi.Generator" Version="0.9.19" />
+    <PackageReference Include="Microsoft.SemanticKernel" Version="1.74.0" />
   </ItemGroup>
 </Project>

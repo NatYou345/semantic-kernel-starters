@@ -5,8 +5,6 @@ using System.Threading.Tasks;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.SemanticKernel;
-using Microsoft.SemanticKernel.Orchestration;
-using Microsoft.SemanticKernel.SkillDefinition;
 using Models;
 
 namespace AIPlugins.AzureFunctions.Extensions;
@@ -14,9 +12,9 @@ namespace AIPlugins.AzureFunctions.Extensions;
 public class AIPluginRunner : IAIPluginRunner
 {
     private readonly ILogger<AIPluginRunner> _logger;
-    private readonly IKernel _kernel;
+    private readonly Kernel _kernel;
 
-    public AIPluginRunner(IKernel kernel, ILoggerFactory loggerFactory)
+    public AIPluginRunner(Kernel kernel, ILoggerFactory loggerFactory)
     {
         this._kernel = kernel;
         this._logger = loggerFactory.CreateLogger<AIPluginRunner>();
@@ -30,50 +28,49 @@ public class AIPluginRunner : IAIPluginRunner
     /// <param name="operationId"></param>
     public async Task<HttpResponseData> RunAIPluginOperationAsync(HttpRequestData req, string operationId)
     {
-        ContextVariables contextVariables = LoadContextVariablesFromRequest(req);
+        KernelArguments arguments = LoadArgumentsFromRequest(req);
 
         var appSettings = AppSettings.LoadSettings();
 
-        if (!this._kernel.Skills.TryGetFunction(
-            skillName: appSettings.AIPlugin.NameForModel,
+        if (!this._kernel.Plugins.TryGetFunction(
+            pluginName: appSettings.AIPlugin.NameForModel,
             functionName: operationId,
-            out ISKFunction? function))
+            out KernelFunction? function))
         {
             HttpResponseData errorResponse = req.CreateResponse(HttpStatusCode.NotFound);
             await errorResponse.WriteStringAsync($"Function {operationId} not found");
             return errorResponse;
         }
 
-        var result = await this._kernel.RunAsync(contextVariables, function);
-        if (result.ErrorOccurred)
+        try
+        {
+            var result = await this._kernel.InvokeAsync(function, arguments);
+
+            var response = req.CreateResponse(HttpStatusCode.OK);
+            response.Headers.Add("Content-Type", "text/plain;charset=utf-8");
+            await response.WriteStringAsync(result.GetValue<string>() ?? string.Empty);
+            return response;
+        }
+        catch (Exception ex)
         {
             HttpResponseData errorResponse = req.CreateResponse(HttpStatusCode.BadRequest);
-            string? message = result?.LastException?.Message;
-            if (message != null)
-            {
-                await errorResponse.WriteStringAsync(message);
-            }
+            await errorResponse.WriteStringAsync(ex.Message);
             return errorResponse;
         }
-
-        var response = req.CreateResponse(HttpStatusCode.OK);
-        response.Headers.Add("Content-Type", "text/plain;charset=utf-8");
-        await response.WriteStringAsync(result.Result);
-        return response;
     }
 
     /// <summary>
     /// Grabs the context variables to send to the semantic function from the original HTTP request.
     /// </summary>
     /// <param name="req"></param>
-    protected static ContextVariables LoadContextVariablesFromRequest(HttpRequestData req)
+    protected static KernelArguments LoadArgumentsFromRequest(HttpRequestData req)
     {
-        ContextVariables contextVariables = new ContextVariables();
+        KernelArguments arguments = new KernelArguments();
         foreach (string? key in req.Query.AllKeys)
         {
             if (!string.IsNullOrEmpty(key))
             {
-                contextVariables.Set(key, req.Query[key]);
+                arguments[key] = req.Query[key];
             }
         }
 
@@ -84,10 +81,10 @@ public class AIPluginRunner : IAIPluginRunner
             string? body = req.ReadAsString();
             if (!string.IsNullOrEmpty(body))
             {
-                contextVariables.Update(body);
+                arguments["input"] = body;
             }
         }
 
-        return contextVariables;
+        return arguments;
     }
 }

@@ -5,13 +5,13 @@
     <LangVersion>10</LangVersion>
     <Nullable>enable</Nullable>
     <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
-    <NoWarn>RS1035</NoWarn> <!-- Suppress RS1035: "SourceGenerator Deprecated" -->
+    <NoWarn>RS1035;RS1042</NoWarn> <!-- Suppress RS1035: "SourceGenerator Deprecated", RS1042: V1 ISourceGenerator -->
     <RootNamespace>AIPlugins.AzureFunctions.Generator</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="3.11.0" />
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.11.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="5.3.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="5.3.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" PrivateAssets="all" GeneratePathProperty="true" />
   </ItemGroup>
 

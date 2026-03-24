@@ -4,16 +4,15 @@ using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
 using Microsoft.SemanticKernel;
-using Microsoft.SemanticKernel.Orchestration;
 using Models;
 
 public class ExecuteFunctionEndpoint
 {
     private static readonly JsonSerializerOptions s_jsonOptions = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
 
-    private readonly IKernel _kernel;
+    private readonly Kernel _kernel;
 
-    public ExecuteFunctionEndpoint(IKernel kernel)
+    public ExecuteFunctionEndpoint(Kernel kernel)
     {
         this._kernel = kernel;
     }
@@ -48,19 +47,19 @@ public class ExecuteFunctionEndpoint
             return await CreateResponseAsync(requestData, HttpStatusCode.NotFound, new ErrorResponse() { Message = $"Unable to find {skillName}" }).ConfigureAwait(false);
         }
 
-        var skill = this._kernel.ImportSemanticSkillFromDirectory(skillsDirectory, skillName);
-        if (!skill.TryGetValue(functionName, out var function))
+        var plugin = this._kernel.ImportPluginFromPromptDirectory(Path.Combine(skillsDirectory, skillName), skillName);
+        if (!plugin.TryGetFunction(functionName, out var function))
         {
             return await CreateResponseAsync(requestData, HttpStatusCode.NotFound, new ErrorResponse() { Message = $"Unable to find {skillName}.{functionName}" }).ConfigureAwait(false);
         }
 
-        var context = new ContextVariables();
+        var arguments = new KernelArguments();
         foreach (var v in functionRequest.Variables)
         {
-            context.Set(v.Key, v.Value);
+            arguments[v.Key] = v.Value;
         }
 
-        var result = await this._kernel.RunAsync(context, function).ConfigureAwait(false);
+        var result = await this._kernel.InvokeAsync(function, arguments).ConfigureAwait(false);
 
         return await CreateResponseAsync(requestData, HttpStatusCode.OK, new ExecuteFunctionResponse() { Response = result.ToString() }).ConfigureAwait(false);
     }

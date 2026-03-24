@@ -20,21 +20,17 @@ builder.Services
     .ConfigureFunctionsApplicationInsights();
 
 builder.Services
-    .AddScoped<IKernel>((providers) =>
+    .AddScoped<Kernel>((providers) =>
     {
         // This will be called each time a new Kernel is needed
 
-        // Get a logger instance
-        ILogger<IKernel> logger = providers
-            .GetRequiredService<ILoggerFactory>()
-            .CreateLogger<IKernel>();
-
         // Register your AI Providers...
         var appSettings = AppSettings.LoadSettings();
-        IKernel kernel = new KernelBuilder()
-            .WithChatCompletionService(appSettings.Kernel)
-            .WithLogger(logger)
-            .Build();
+        var kernelBuilder = Kernel.CreateBuilder();
+        kernelBuilder.Services.AddLogging(c => c.AddConsole().AddDebug());
+        kernelBuilder.WithChatCompletionService(appSettings.Kernel);
+
+        Kernel kernel = kernelBuilder.Build();
 
         // Load your semantic functions...
         kernel.ImportPromptsFromDirectory(appSettings.AIPlugin.NameForModel, semanticFunctionsFolder);

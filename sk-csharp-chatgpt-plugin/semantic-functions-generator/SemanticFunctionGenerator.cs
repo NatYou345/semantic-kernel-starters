@@ -13,7 +13,7 @@ using Newtonsoft.Json;
 
 namespace AIPlugins.AzureFunctions.Generator;
 
-[Generator]
+[Generator(LanguageNames.CSharp)]
 public class SemanticFunctionGenerator : ISourceGenerator
 {
     private const string DefaultFunctionNamespace = "AIPlugins";
