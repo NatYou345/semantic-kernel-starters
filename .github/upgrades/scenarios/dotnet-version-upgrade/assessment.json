@@ -1,0 +1,272 @@
+{
+  "settings": {
+    "components": {
+      "code": true,
+      "binaries": false
+    },
+    "targetId": "net10.0",
+    "targetDisplayName": ".NETCoreApp,Version=v10.0"
+  },
+  "analysisStartTime": "2026-03-24T08:40:16.194416Z",
+  "analysisEndTime": "2026-03-24T08:40:21.9473502Z",
+  "privacyModeHelpUrl": "https://go.microsoft.com/fwlink/?linkid=2270980",
+  "stats": {
+    "summary": {
+      "projects": 1,
+      "issues": 4,
+      "incidents": 6,
+      "effort": 6
+    },
+    "charts": {
+      "severity": {
+        "Mandatory": 3,
+        "Optional": 0,
+        "Potential": 3,
+        "Information": 0
+      },
+      "category": {
+        "NuGet": 2,
+        "Project": 1,
+        "Api": 3
+      }
+    }
+  },
+  "projects": [
+    {
+      "path": "sk-csharp-console-chat.csproj",
+      "startingProject": true,
+      "issues": 4,
+      "storyPoints": 6,
+      "properties": {
+        "appName": "sk-csharp-console-chat",
+        "projectKind": "DotNetCoreApp",
+        "frameworks": [
+          "net8.0"
+        ],
+        "languages": [
+          "C#"
+        ],
+        "tools": [
+          "MSBuild"
+        ],
+        "isSdkStyle": true,
+        "numberOfFiles": 6,
+        "numberOfCodeFiles": 6,
+        "linesTotal": 287,
+        "linesOfCode": 287,
+        "totalApiScanned": 320,
+        "minLinesOfCodeToChange": 3,
+        "maxLinesOfCodeToChange": 3
+      },
+      "ruleInstances": [
+        {
+          "incidentId": "19122762-a58c-47ee-9115-ad556e45ba74",
+          "ruleId": "NuGet.0002",
+          "projectPath": "sk-csharp-console-chat.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.Extensions.Configuration.UserSecrets, 6.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration.UserSecrets, and replace with new package Microsoft.Extensions.Configuration.UserSecrets 10.0.5",
+              "protected": "Microsoft.Extensions.Configuration.UserSecrets, 6.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration.UserSecrets, and replace with new package Microsoft.Extensions.Configuration.UserSecrets 10.0.5"
+            },
+            "kind": "File",
+            "path": "sk-csharp-console-chat.csproj",
+            "snippet": "Microsoft.Extensions.Configuration.UserSecrets, 6.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration.UserSecrets, and replace with new package Microsoft.Extensions.Configuration.UserSecrets 10.0.5",
+            "protectedSnippet": "Microsoft.Extensions.Configuration.UserSecrets, 6.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration.UserSecrets, and replace with new package Microsoft.Extensions.Configuration.UserSecrets 10.0.5",
+            "label": "Microsoft.Extensions.Configuration.UserSecrets 6.0.0",
+            "properties": {
+              "PackageId": "Microsoft.Extensions.Configuration.UserSecrets",
+              "PackageVersion": "6.0.0",
+              "PackageNewVersion": "10.0.5",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "9ec5eef7-c1e3-46fb-8242-ee15c20c1315",
+          "ruleId": "NuGet.0002",
+          "projectPath": "sk-csharp-console-chat.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.Extensions.Hosting, 6.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Hosting, and replace with new package Microsoft.Extensions.Hosting 10.0.5",
+              "protected": "Microsoft.Extensions.Hosting, 6.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Hosting, and replace with new package Microsoft.Extensions.Hosting 10.0.5"
+            },
+            "kind": "File",
+            "path": "sk-csharp-console-chat.csproj",
+            "snippet": "Microsoft.Extensions.Hosting, 6.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Hosting, and replace with new package Microsoft.Extensions.Hosting 10.0.5",
+            "protectedSnippet": "Microsoft.Extensions.Hosting, 6.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Hosting, and replace with new package Microsoft.Extensions.Hosting 10.0.5",
+            "label": "Microsoft.Extensions.Hosting 6.0.0",
+            "properties": {
+              "PackageId": "Microsoft.Extensions.Hosting",
+              "PackageVersion": "6.0.0",
+              "PackageNewVersion": "10.0.5",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "616567b6-cfa3-43e4-bd53-95b85c15c10e",
+          "ruleId": "Project.0002",
+          "projectPath": "sk-csharp-console-chat.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Current target framework: net8.0\nRecommended target framework: net10.0",
+              "protected": "Current target framework: net8.0\nRecommended target framework: net10.0"
+            },
+            "kind": "File",
+            "path": "sk-csharp-console-chat.csproj",
+            "snippet": "Current target framework: net8.0\nRecommended target framework: net10.0",
+            "protectedSnippet": "Current target framework: net8.0\nRecommended target framework: net10.0",
+            "properties": {
+              "CurrentTargetFramework": "net8.0",
+              "RecommendedTargetFramework": "net10.0"
+            }
+          }
+        },
+        {
+          "incidentId": "79f28c9f-ec84-4b60-8ad7-70f41a8c1a30",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: Message no longer duplicated in Console log output ",
+          "projectPath": "sk-csharp-console-chat.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "logging.AddConsole();",
+              "protected": "M:Microsoft.Extensions.Logging.ConsoleLoggerExtensions.AddConsole(Microsoft.Extensions.Logging.ILoggingBuilder)"
+            },
+            "kind": "File",
+            "path": "Program.cs",
+            "snippet": "logging.AddConsole();",
+            "protectedSnippet": "M:Microsoft.Extensions.Logging.ConsoleLoggerExtensions.AddConsole(Microsoft.Extensions.Logging.ILoggingBuilder)",
+            "label": "M:Microsoft.Extensions.Logging.ConsoleLoggerExtensions.AddConsole(Microsoft.Extensions.Logging.ILoggingBuilder)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/extensions/10.0/console-json-logging-duplicate-messages.md",
+                "isCustom": false
+              }
+            ],
+            "line": 16,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "fa9c3688-b518-4687-a80e-28f04fa00800",
+          "ruleId": "Api.0001",
+          "description": "Breaking change: DynamicallyAccessedMembers annotation removed from trim-unsafe configuration APIs ",
+          "projectPath": "sk-csharp-console-chat.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "return configuration.Get\u003CKernelSettings\u003E()\n               ?? throw new InvalidDataException(\u0022Invalid semantic kernel settings in user secrets, please provide configuration settings using instructions in the README.\u0022);",
+              "protected": "M:Microsoft.Extensions.Configuration.ConfigurationBinder.Get\u0060\u00601(Microsoft.Extensions.Configuration.IConfiguration)"
+            },
+            "kind": "File",
+            "path": "config\\KernelSettings.cs",
+            "snippet": "return configuration.Get\u003CKernelSettings\u003E()\n               ?? throw new InvalidDataException(\u0022Invalid semantic kernel settings in user secrets, please provide configuration settings using instructions in the README.\u0022);",
+            "protectedSnippet": "M:Microsoft.Extensions.Configuration.ConfigurationBinder.Get\u0060\u00601(Microsoft.Extensions.Configuration.IConfiguration)",
+            "label": "M:Microsoft.Extensions.Configuration.ConfigurationBinder.Get\u0060\u00601(Microsoft.Extensions.Configuration.IConfiguration)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/extensions/10.0/dynamically-accessed-members-configuration.md",
+                "isCustom": false
+              }
+            ],
+            "line": 89,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "a147caea-cf14-410e-bbc4-b29c53a439b2",
+          "ruleId": "Api.0001",
+          "description": "Breaking change: DynamicallyAccessedMembers annotation removed from trim-unsafe configuration APIs ",
+          "projectPath": "sk-csharp-console-chat.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "return configuration.Get\u003CKernelSettings\u003E()\n               ?? throw new InvalidDataException($\u0022Invalid semantic kernel settings in \u0027{configFile}\u0027, please provide configuration settings using instructions in the README.\u0022);",
+              "protected": "M:Microsoft.Extensions.Configuration.ConfigurationBinder.Get\u0060\u00601(Microsoft.Extensions.Configuration.IConfiguration)"
+            },
+            "kind": "File",
+            "path": "config\\KernelSettings.cs",
+            "snippet": "return configuration.Get\u003CKernelSettings\u003E()\n               ?? throw new InvalidDataException($\u0022Invalid semantic kernel settings in \u0027{configFile}\u0027, please provide configuration settings using instructions in the README.\u0022);",
+            "protectedSnippet": "M:Microsoft.Extensions.Configuration.ConfigurationBinder.Get\u0060\u00601(Microsoft.Extensions.Configuration.IConfiguration)",
+            "label": "M:Microsoft.Extensions.Configuration.ConfigurationBinder.Get\u0060\u00601(Microsoft.Extensions.Configuration.IConfiguration)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/extensions/10.0/dynamically-accessed-members-configuration.md",
+                "isCustom": false
+              }
+            ],
+            "line": 76,
+            "column": 8
+          }
+        }
+      ],
+      "features": []
+    }
+  ],
+  "rules": {
+    "NuGet.0002": {
+      "id": "NuGet.0002",
+      "isFeature": false,
+      "description": "NuGet package upgrade is recommended for selected target framework.\n\nStandard .NET packages are recommended to have versions matching version of .NET that project targets.\n\nSome other packages also are known to work better for selected target frameworks.",
+      "label": "NuGet package upgrade is recommended",
+      "severity": "Potential",
+      "effort": 1,
+      "links": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262530",
+          "isCustom": false
+        }
+      ]
+    },
+    "Project.0002": {
+      "id": "Project.0002",
+      "isFeature": false,
+      "description": "Project\u0027s target framework(s) needs to be changed to the new target framework that you selected for this upgrade.\n\nDuring upgrade target framework will be adjusted to corresponding platform when applicable. In some cases project would result in multiple target frameworks after the upgrade if it was using features that now have their own platforms in modern .NET frameworks (windows, iOS, Android etc).",
+      "label": "Project\u0027s target framework(s) needs to be changed",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Overview of porting from .NET Framework to .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265227",
+          "isCustom": false
+        },
+        {
+          "title": ".NET project SDKs",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265226",
+          "isCustom": false
+        }
+      ]
+    },
+    "Api.0003": {
+      "id": "Api.0003",
+      "isFeature": false,
+      "description": "API has a behavioral change in selected .NET version: code and binaries may behave differently at runtime without needing recompilation, but the new behavior might be undesirable and require updates.",
+      "label": "Behavioral change in selected .NET version",
+      "severity": "Potential",
+      "effort": 1
+    },
+    "Api.0001": {
+      "id": "Api.0001",
+      "isFeature": false,
+      "description": "API is binary incompatible for selected .NET version: affects existing binaries, often requiring recompilation, because the API has changed in a way that prevents older binaries from loading or executing.",
+      "label": "Binary incompatible for selected .NET version",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Breaking changes in .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262679",
+          "isCustom": false
+        }
+      ]
+    }
+  }
+}
