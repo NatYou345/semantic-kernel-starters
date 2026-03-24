@@ -7,13 +7,13 @@
     "targetId": "net10.0",
     "targetDisplayName": ".NETCoreApp,Version=v10.0"
   },
-  "analysisStartTime": "2026-03-24T08:40:16.194416Z",
-  "analysisEndTime": "2026-03-24T08:40:21.9473502Z",
+  "analysisStartTime": "2026-03-24T09:05:14.9322324Z",
+  "analysisEndTime": "2026-03-24T09:05:18.0125041Z",
   "privacyModeHelpUrl": "https://go.microsoft.com/fwlink/?linkid=2270980",
   "stats": {
     "summary": {
       "projects": 1,
-      "issues": 4,
+      "issues": 3,
       "incidents": 6,
       "effort": 6
     },
@@ -25,20 +25,20 @@
         "Information": 0
       },
       "category": {
-        "NuGet": 2,
+        "NuGet": 3,
         "Project": 1,
-        "Api": 3
+        "Api": 2
       }
     }
   },
   "projects": [
     {
-      "path": "sk-csharp-console-chat.csproj",
+      "path": "sk-csharp-hello-world.csproj",
       "startingProject": true,
-      "issues": 4,
+      "issues": 3,
       "storyPoints": 6,
       "properties": {
-        "appName": "sk-csharp-console-chat",
+        "appName": "sk-csharp-hello-world",
         "projectKind": "DotNetCoreApp",
         "frameworks": [
           "net8.0"
@@ -50,55 +50,55 @@
           "MSBuild"
         ],
         "isSdkStyle": true,
-        "numberOfFiles": 6,
+        "numberOfFiles": 7,
         "numberOfCodeFiles": 6,
-        "linesTotal": 287,
-        "linesOfCode": 287,
-        "totalApiScanned": 320,
-        "minLinesOfCodeToChange": 3,
-        "maxLinesOfCodeToChange": 3
+        "linesTotal": 252,
+        "linesOfCode": 239,
+        "totalApiScanned": 263,
+        "minLinesOfCodeToChange": 2,
+        "maxLinesOfCodeToChange": 2
       },
       "ruleInstances": [
         {
-          "incidentId": "19122762-a58c-47ee-9115-ad556e45ba74",
+          "incidentId": "25a7e5c3-c43e-4baa-b283-56fad7403550",
           "ruleId": "NuGet.0002",
-          "projectPath": "sk-csharp-console-chat.csproj",
+          "projectPath": "sk-csharp-hello-world.csproj",
           "state": "Active",
           "location": {
             "snippetModel": {
-              "unrestricted": "Microsoft.Extensions.Configuration.UserSecrets, 6.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration.UserSecrets, and replace with new package Microsoft.Extensions.Configuration.UserSecrets 10.0.5",
-              "protected": "Microsoft.Extensions.Configuration.UserSecrets, 6.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration.UserSecrets, and replace with new package Microsoft.Extensions.Configuration.UserSecrets 10.0.5"
+              "unrestricted": "Microsoft.Extensions.Configuration.UserSecrets, 8.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration.UserSecrets, and replace with new package Microsoft.Extensions.Configuration.UserSecrets 10.0.5",
+              "protected": "Microsoft.Extensions.Configuration.UserSecrets, 8.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration.UserSecrets, and replace with new package Microsoft.Extensions.Configuration.UserSecrets 10.0.5"
             },
             "kind": "File",
-            "path": "sk-csharp-console-chat.csproj",
-            "snippet": "Microsoft.Extensions.Configuration.UserSecrets, 6.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration.UserSecrets, and replace with new package Microsoft.Extensions.Configuration.UserSecrets 10.0.5",
-            "protectedSnippet": "Microsoft.Extensions.Configuration.UserSecrets, 6.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration.UserSecrets, and replace with new package Microsoft.Extensions.Configuration.UserSecrets 10.0.5",
-            "label": "Microsoft.Extensions.Configuration.UserSecrets 6.0.0",
+            "path": "sk-csharp-hello-world.csproj",
+            "snippet": "Microsoft.Extensions.Configuration.UserSecrets, 8.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration.UserSecrets, and replace with new package Microsoft.Extensions.Configuration.UserSecrets 10.0.5",
+            "protectedSnippet": "Microsoft.Extensions.Configuration.UserSecrets, 8.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration.UserSecrets, and replace with new package Microsoft.Extensions.Configuration.UserSecrets 10.0.5",
+            "label": "Microsoft.Extensions.Configuration.UserSecrets 8.0.0",
             "properties": {
               "PackageId": "Microsoft.Extensions.Configuration.UserSecrets",
-              "PackageVersion": "6.0.0",
+              "PackageVersion": "8.0.0",
               "PackageNewVersion": "10.0.5",
               "PackageReplacements": null
             }
           }
         },
         {
-          "incidentId": "9ec5eef7-c1e3-46fb-8242-ee15c20c1315",
+          "incidentId": "f0d79731-6178-44cb-b635-db95ff72d6db",
           "ruleId": "NuGet.0002",
-          "projectPath": "sk-csharp-console-chat.csproj",
+          "projectPath": "sk-csharp-hello-world.csproj",
           "state": "Active",
           "location": {
             "snippetModel": {
-              "unrestricted": "Microsoft.Extensions.Hosting, 6.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Hosting, and replace with new package Microsoft.Extensions.Hosting 10.0.5",
-              "protected": "Microsoft.Extensions.Hosting, 6.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Hosting, and replace with new package Microsoft.Extensions.Hosting 10.0.5"
+              "unrestricted": "Microsoft.Extensions.Logging.Console, 6.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Logging.Console, and replace with new package Microsoft.Extensions.Logging.Console 10.0.5",
+              "protected": "Microsoft.Extensions.Logging.Console, 6.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Logging.Console, and replace with new package Microsoft.Extensions.Logging.Console 10.0.5"
             },
             "kind": "File",
-            "path": "sk-csharp-console-chat.csproj",
-            "snippet": "Microsoft.Extensions.Hosting, 6.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Hosting, and replace with new package Microsoft.Extensions.Hosting 10.0.5",
-            "protectedSnippet": "Microsoft.Extensions.Hosting, 6.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Hosting, and replace with new package Microsoft.Extensions.Hosting 10.0.5",
-            "label": "Microsoft.Extensions.Hosting 6.0.0",
+            "path": "sk-csharp-hello-world.csproj",
+            "snippet": "Microsoft.Extensions.Logging.Console, 6.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Logging.Console, and replace with new package Microsoft.Extensions.Logging.Console 10.0.5",
+            "protectedSnippet": "Microsoft.Extensions.Logging.Console, 6.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Logging.Console, and replace with new package Microsoft.Extensions.Logging.Console 10.0.5",
+            "label": "Microsoft.Extensions.Logging.Console 6.0.0",
             "properties": {
-              "PackageId": "Microsoft.Extensions.Hosting",
+              "PackageId": "Microsoft.Extensions.Logging.Console",
               "PackageVersion": "6.0.0",
               "PackageNewVersion": "10.0.5",
               "PackageReplacements": null
@@ -106,9 +106,32 @@
           }
         },
         {
-          "incidentId": "616567b6-cfa3-43e4-bd53-95b85c15c10e",
+          "incidentId": "8605c024-3914-4135-8c87-45918b12334e",
+          "ruleId": "NuGet.0002",
+          "projectPath": "sk-csharp-hello-world.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.Extensions.Logging.Debug, 6.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Logging.Debug, and replace with new package Microsoft.Extensions.Logging.Debug 10.0.5",
+              "protected": "Microsoft.Extensions.Logging.Debug, 6.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Logging.Debug, and replace with new package Microsoft.Extensions.Logging.Debug 10.0.5"
+            },
+            "kind": "File",
+            "path": "sk-csharp-hello-world.csproj",
+            "snippet": "Microsoft.Extensions.Logging.Debug, 6.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Logging.Debug, and replace with new package Microsoft.Extensions.Logging.Debug 10.0.5",
+            "protectedSnippet": "Microsoft.Extensions.Logging.Debug, 6.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Logging.Debug, and replace with new package Microsoft.Extensions.Logging.Debug 10.0.5",
+            "label": "Microsoft.Extensions.Logging.Debug 6.0.0",
+            "properties": {
+              "PackageId": "Microsoft.Extensions.Logging.Debug",
+              "PackageVersion": "6.0.0",
+              "PackageNewVersion": "10.0.5",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "d8092b6e-97f3-499b-8cad-6af29821580d",
           "ruleId": "Project.0002",
-          "projectPath": "sk-csharp-console-chat.csproj",
+          "projectPath": "sk-csharp-hello-world.csproj",
           "state": "Active",
           "location": {
             "snippetModel": {
@@ -116,7 +139,7 @@
               "protected": "Current target framework: net8.0\nRecommended target framework: net10.0"
             },
             "kind": "File",
-            "path": "sk-csharp-console-chat.csproj",
+            "path": "sk-csharp-hello-world.csproj",
             "snippet": "Current target framework: net8.0\nRecommended target framework: net10.0",
             "protectedSnippet": "Current target framework: net8.0\nRecommended target framework: net10.0",
             "properties": {
@@ -126,37 +149,10 @@
           }
         },
         {
-          "incidentId": "79f28c9f-ec84-4b60-8ad7-70f41a8c1a30",
-          "ruleId": "Api.0003",
-          "description": "Breaking change: Message no longer duplicated in Console log output ",
-          "projectPath": "sk-csharp-console-chat.csproj",
-          "state": "Active",
-          "location": {
-            "snippetModel": {
-              "unrestricted": "logging.AddConsole();",
-              "protected": "M:Microsoft.Extensions.Logging.ConsoleLoggerExtensions.AddConsole(Microsoft.Extensions.Logging.ILoggingBuilder)"
-            },
-            "kind": "File",
-            "path": "Program.cs",
-            "snippet": "logging.AddConsole();",
-            "protectedSnippet": "M:Microsoft.Extensions.Logging.ConsoleLoggerExtensions.AddConsole(Microsoft.Extensions.Logging.ILoggingBuilder)",
-            "label": "M:Microsoft.Extensions.Logging.ConsoleLoggerExtensions.AddConsole(Microsoft.Extensions.Logging.ILoggingBuilder)",
-            "links": [
-              {
-                "title": "API documentation",
-                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/extensions/10.0/console-json-logging-duplicate-messages.md",
-                "isCustom": false
-              }
-            ],
-            "line": 16,
-            "column": 8
-          }
-        },
-        {
-          "incidentId": "fa9c3688-b518-4687-a80e-28f04fa00800",
+          "incidentId": "5f59a6ef-63fe-4d95-a7b1-72603e126238",
           "ruleId": "Api.0001",
           "description": "Breaking change: DynamicallyAccessedMembers annotation removed from trim-unsafe configuration APIs ",
-          "projectPath": "sk-csharp-console-chat.csproj",
+          "projectPath": "sk-csharp-hello-world.csproj",
           "state": "Active",
           "location": {
             "snippetModel": {
@@ -180,10 +176,10 @@
           }
         },
         {
-          "incidentId": "a147caea-cf14-410e-bbc4-b29c53a439b2",
+          "incidentId": "57e68e18-8e12-4ce7-911a-8e6769cf5bc0",
           "ruleId": "Api.0001",
           "description": "Breaking change: DynamicallyAccessedMembers annotation removed from trim-unsafe configuration APIs ",
-          "projectPath": "sk-csharp-console-chat.csproj",
+          "projectPath": "sk-csharp-hello-world.csproj",
           "state": "Active",
           "location": {
             "snippetModel": {
@@ -244,14 +240,6 @@
           "isCustom": false
         }
       ]
-    },
-    "Api.0003": {
-      "id": "Api.0003",
-      "isFeature": false,
-      "description": "API has a behavioral change in selected .NET version: code and binaries may behave differently at runtime without needing recompilation, but the new behavior might be undesirable and require updates.",
-      "label": "Behavioral change in selected .NET version",
-      "severity": "Potential",
-      "effort": 1
     },
     "Api.0001": {
       "id": "Api.0001",
