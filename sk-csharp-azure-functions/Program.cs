@@ -1,8 +1,9 @@
 ﻿using System.Text.Json;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Builder;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Abstractions;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Configurations;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Enums;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -13,50 +14,39 @@ namespace KernelHttpServer;
 
 public static class Program
 {
-    public static void Main()
+    public static void Main(string[] args)
     {
-        var host = new HostBuilder()
-            .ConfigureFunctionsWorkerDefaults()
-            .ConfigureAppConfiguration(configuration =>
-            {
-                var config = configuration.SetBasePath(Directory.GetCurrentDirectory())
-                    .AddJsonFile("local.settings.json", optional: true, reloadOnChange: true);
+        var builder = FunctionsApplication.CreateBuilder(args);
 
-                var builtConfig = config.Build();
-            })
-            .ConfigureServices(services =>
-            {
-                services.AddSingleton<IOpenApiConfigurationOptions>(_ => s_apiConfigOptions);
-                services.AddTransient((provider) => CreateKernel(provider));
+        // Enable Application Insights telemetry
+        builder.Services
+            .AddApplicationInsightsTelemetryWorkerService()
+            .ConfigureFunctionsApplicationInsights();
 
+        builder.Services.AddSingleton<IOpenApiConfigurationOptions>(_ => s_apiConfigOptions);
+        builder.Services.AddTransient<Kernel>((provider) => CreateKernel(provider));
 
-                // return JSON with expected lowercase naming
-                services.Configure<JsonSerializerOptions>(options =>
-                {
-                    options.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
-                });
-            })
-            .Build();
+        // return JSON with expected lowercase naming
+        builder.Services.Configure<JsonSerializerOptions>(options =>
+        {
+            options.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+        });
 
-        host.Run();
+        builder.Build().Run();
     }
 
-    private static IKernel CreateKernel(IServiceProvider provider)
+    private static Kernel CreateKernel(IServiceProvider provider)
     {
         var kernelSettings = KernelSettings.LoadSettings();
 
-        using ILoggerFactory loggerFactory = LoggerFactory.Create(builder =>
-        {
-            builder
-                .SetMinimumLevel(kernelSettings.LogLevel ?? LogLevel.Warning)
-                .AddConsole()
-                .AddDebug();
-        });
+        var kernelBuilder = Kernel.CreateBuilder();
+        kernelBuilder.Services.AddLogging(c => c
+            .SetMinimumLevel(kernelSettings.LogLevel ?? LogLevel.Warning)
+            .AddConsole()
+            .AddDebug());
+        kernelBuilder.WithCompletionService(kernelSettings);
 
-        return new KernelBuilder()
-            .WithLogger(loggerFactory.CreateLogger<IKernel>())
-            .WithCompletionService(kernelSettings)
-            .Build();
+        return kernelBuilder.Build();
     }
 
     private static readonly OpenApiConfigurationOptions s_apiConfigOptions = new()

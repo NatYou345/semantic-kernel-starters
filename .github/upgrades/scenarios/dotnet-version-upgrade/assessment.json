@@ -7,38 +7,142 @@
     "targetId": "net10.0",
     "targetDisplayName": ".NETCoreApp,Version=v10.0"
   },
-  "analysisStartTime": "2026-03-24T09:05:14.9322324Z",
-  "analysisEndTime": "2026-03-24T09:05:18.0125041Z",
+  "analysisStartTime": "2026-03-24T09:19:53.0519518Z",
+  "analysisEndTime": "2026-03-24T09:19:56.8606467Z",
   "privacyModeHelpUrl": "https://go.microsoft.com/fwlink/?linkid=2270980",
   "stats": {
     "summary": {
-      "projects": 1,
-      "issues": 3,
-      "incidents": 6,
-      "effort": 6
+      "projects": 8,
+      "issues": 7,
+      "incidents": 31,
+      "effort": 35
     },
     "charts": {
       "severity": {
-        "Mandatory": 3,
-        "Optional": 0,
-        "Potential": 3,
+        "Mandatory": 12,
+        "Optional": 1,
+        "Potential": 18,
         "Information": 0
       },
       "category": {
-        "NuGet": 3,
-        "Project": 1,
-        "Api": 2
+        "Project": 5,
+        "NuGet": 14,
+        "Api": 10,
+        "AzureFunctionsUpgrade": 2
       }
     }
   },
   "projects": [
     {
-      "path": "sk-csharp-hello-world.csproj",
+      "path": "sk-process-framework\\dotnet\\ProductDocumentation\\ProductDocumentation.csproj",
       "startingProject": true,
-      "issues": 3,
-      "storyPoints": 6,
+      "issues": 1,
+      "storyPoints": 1,
       "properties": {
-        "appName": "sk-csharp-hello-world",
+        "appName": "ProductDocumentation",
+        "projectKind": "ClassLibrary",
+        "frameworks": [
+          "net8.0"
+        ],
+        "languages": [
+          "C#"
+        ],
+        "tools": [
+          "MSBuild"
+        ],
+        "isSdkStyle": true,
+        "numberOfFiles": 3,
+        "numberOfCodeFiles": 3,
+        "linesTotal": 82,
+        "linesOfCode": 82,
+        "totalApiScanned": 42,
+        "minLinesOfCodeToChange": 0,
+        "maxLinesOfCodeToChange": 0
+      },
+      "ruleInstances": [
+        {
+          "incidentId": "c953372e-8427-46f8-adee-e5cd54444e1b",
+          "ruleId": "Project.0002",
+          "projectPath": "sk-process-framework\\dotnet\\ProductDocumentation\\ProductDocumentation.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Current target framework: net8.0\nRecommended target framework: net10.0",
+              "protected": "Current target framework: net8.0\nRecommended target framework: net10.0"
+            },
+            "kind": "File",
+            "path": "sk-process-framework\\dotnet\\ProductDocumentation\\ProductDocumentation.csproj",
+            "snippet": "Current target framework: net8.0\nRecommended target framework: net10.0",
+            "protectedSnippet": "Current target framework: net8.0\nRecommended target framework: net10.0",
+            "properties": {
+              "CurrentTargetFramework": "net8.0",
+              "RecommendedTargetFramework": "net10.0"
+            }
+          }
+        }
+      ],
+      "features": []
+    },
+    {
+      "path": "sk-csharp-chatgpt-plugin\\semantic-functions-generator\\semantic-functions-generator.csproj",
+      "startingProject": true,
+      "issues": 1,
+      "storyPoints": 1,
+      "properties": {
+        "appName": "semantic-functions-generator",
+        "projectKind": "ClassLibrary",
+        "frameworks": [
+          "netstandard2.0"
+        ],
+        "languages": [
+          "C#"
+        ],
+        "tools": [
+          "MSBuild"
+        ],
+        "isSdkStyle": true,
+        "numberOfFiles": 3,
+        "numberOfCodeFiles": 3,
+        "linesTotal": 262,
+        "linesOfCode": 262,
+        "totalApiScanned": 213,
+        "minLinesOfCodeToChange": 0,
+        "maxLinesOfCodeToChange": 0
+      },
+      "ruleInstances": [
+        {
+          "incidentId": "81ca5494-e543-4b6e-b43b-b0e0d5e97731",
+          "ruleId": "NuGet.0002",
+          "projectPath": "sk-csharp-chatgpt-plugin\\semantic-functions-generator\\semantic-functions-generator.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Newtonsoft.Json, 13.0.3\n\nRecommendation:\n\nRemove Newtonsoft.Json, and replace with new package Newtonsoft.Json 13.0.4",
+              "protected": "Newtonsoft.Json, 13.0.3\n\nRecommendation:\n\nRemove Newtonsoft.Json, and replace with new package Newtonsoft.Json 13.0.4"
+            },
+            "kind": "File",
+            "path": "sk-csharp-chatgpt-plugin\\semantic-functions-generator\\semantic-functions-generator.csproj",
+            "snippet": "Newtonsoft.Json, 13.0.3\n\nRecommendation:\n\nRemove Newtonsoft.Json, and replace with new package Newtonsoft.Json 13.0.4",
+            "protectedSnippet": "Newtonsoft.Json, 13.0.3\n\nRecommendation:\n\nRemove Newtonsoft.Json, and replace with new package Newtonsoft.Json 13.0.4",
+            "label": "Newtonsoft.Json 13.0.3",
+            "properties": {
+              "PackageId": "Newtonsoft.Json",
+              "PackageVersion": "13.0.3",
+              "PackageNewVersion": "13.0.4",
+              "PackageReplacements": null
+            }
+          }
+        }
+      ],
+      "features": []
+    },
+    {
+      "path": "sk_csharp_apim_demo\\sk_csharp_apim_demo.csproj",
+      "startingProject": true,
+      "issues": 4,
+      "storyPoints": 5,
+      "properties": {
+        "appName": "sk_csharp_apim_demo",
         "projectKind": "DotNetCoreApp",
         "frameworks": [
           "net8.0"
@@ -50,42 +154,19 @@
           "MSBuild"
         ],
         "isSdkStyle": true,
-        "numberOfFiles": 7,
-        "numberOfCodeFiles": 6,
-        "linesTotal": 252,
-        "linesOfCode": 239,
-        "totalApiScanned": 263,
-        "minLinesOfCodeToChange": 2,
-        "maxLinesOfCodeToChange": 2
+        "numberOfFiles": 4,
+        "numberOfCodeFiles": 2,
+        "linesTotal": 50071,
+        "linesOfCode": 69,
+        "totalApiScanned": 86,
+        "minLinesOfCodeToChange": 1,
+        "maxLinesOfCodeToChange": 1
       },
       "ruleInstances": [
         {
-          "incidentId": "25a7e5c3-c43e-4baa-b283-56fad7403550",
+          "incidentId": "18bce13b-7eb1-488d-8e0d-e8b7b3873021",
           "ruleId": "NuGet.0002",
-          "projectPath": "sk-csharp-hello-world.csproj",
-          "state": "Active",
-          "location": {
-            "snippetModel": {
-              "unrestricted": "Microsoft.Extensions.Configuration.UserSecrets, 8.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration.UserSecrets, and replace with new package Microsoft.Extensions.Configuration.UserSecrets 10.0.5",
-              "protected": "Microsoft.Extensions.Configuration.UserSecrets, 8.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration.UserSecrets, and replace with new package Microsoft.Extensions.Configuration.UserSecrets 10.0.5"
-            },
-            "kind": "File",
-            "path": "sk-csharp-hello-world.csproj",
-            "snippet": "Microsoft.Extensions.Configuration.UserSecrets, 8.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration.UserSecrets, and replace with new package Microsoft.Extensions.Configuration.UserSecrets 10.0.5",
-            "protectedSnippet": "Microsoft.Extensions.Configuration.UserSecrets, 8.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration.UserSecrets, and replace with new package Microsoft.Extensions.Configuration.UserSecrets 10.0.5",
-            "label": "Microsoft.Extensions.Configuration.UserSecrets 8.0.0",
-            "properties": {
-              "PackageId": "Microsoft.Extensions.Configuration.UserSecrets",
-              "PackageVersion": "8.0.0",
-              "PackageNewVersion": "10.0.5",
-              "PackageReplacements": null
-            }
-          }
-        },
-        {
-          "incidentId": "f0d79731-6178-44cb-b635-db95ff72d6db",
-          "ruleId": "NuGet.0002",
-          "projectPath": "sk-csharp-hello-world.csproj",
+          "projectPath": "sk_csharp_apim_demo\\sk_csharp_apim_demo.csproj",
           "state": "Active",
           "location": {
             "snippetModel": {
@@ -93,7 +174,7 @@
               "protected": "Microsoft.Extensions.Logging.Console, 6.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Logging.Console, and replace with new package Microsoft.Extensions.Logging.Console 10.0.5"
             },
             "kind": "File",
-            "path": "sk-csharp-hello-world.csproj",
+            "path": "sk_csharp_apim_demo\\sk_csharp_apim_demo.csproj",
             "snippet": "Microsoft.Extensions.Logging.Console, 6.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Logging.Console, and replace with new package Microsoft.Extensions.Logging.Console 10.0.5",
             "protectedSnippet": "Microsoft.Extensions.Logging.Console, 6.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Logging.Console, and replace with new package Microsoft.Extensions.Logging.Console 10.0.5",
             "label": "Microsoft.Extensions.Logging.Console 6.0.0",
@@ -106,9 +187,9 @@
           }
         },
         {
-          "incidentId": "8605c024-3914-4135-8c87-45918b12334e",
+          "incidentId": "d1fa5ac6-3a19-4723-a217-0f68f7f31acc",
           "ruleId": "NuGet.0002",
-          "projectPath": "sk-csharp-hello-world.csproj",
+          "projectPath": "sk_csharp_apim_demo\\sk_csharp_apim_demo.csproj",
           "state": "Active",
           "location": {
             "snippetModel": {
@@ -116,7 +197,7 @@
               "protected": "Microsoft.Extensions.Logging.Debug, 6.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Logging.Debug, and replace with new package Microsoft.Extensions.Logging.Debug 10.0.5"
             },
             "kind": "File",
-            "path": "sk-csharp-hello-world.csproj",
+            "path": "sk_csharp_apim_demo\\sk_csharp_apim_demo.csproj",
             "snippet": "Microsoft.Extensions.Logging.Debug, 6.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Logging.Debug, and replace with new package Microsoft.Extensions.Logging.Debug 10.0.5",
             "protectedSnippet": "Microsoft.Extensions.Logging.Debug, 6.0.0\n\nRecommendation:\n\nRemove Microsoft.Extensions.Logging.Debug, and replace with new package Microsoft.Extensions.Logging.Debug 10.0.5",
             "label": "Microsoft.Extensions.Logging.Debug 6.0.0",
@@ -129,9 +210,32 @@
           }
         },
         {
-          "incidentId": "d8092b6e-97f3-499b-8cad-6af29821580d",
+          "incidentId": "0849dde0-3d89-428f-ba3d-2eff4a92a424",
+          "ruleId": "NuGet.0005",
+          "projectPath": "sk_csharp_apim_demo\\sk_csharp_apim_demo.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Azure.Identity, 1.13.2\n\nRecommendation:\n\nThis version takes a dependency on a deprecated version of MSAL .NET (Microsoft.Identity.Client).\nRemove Azure.Identity, and replace with new package Azure.Identity, 1.19.0",
+              "protected": "Azure.Identity, 1.13.2\n\nRecommendation:\n\nThis version takes a dependency on a deprecated version of MSAL .NET (Microsoft.Identity.Client).\nRemove Azure.Identity, and replace with new package Azure.Identity, 1.19.0"
+            },
+            "kind": "File",
+            "path": "sk_csharp_apim_demo\\sk_csharp_apim_demo.csproj",
+            "snippet": "Azure.Identity, 1.13.2\n\nRecommendation:\n\nThis version takes a dependency on a deprecated version of MSAL .NET (Microsoft.Identity.Client).\nRemove Azure.Identity, and replace with new package Azure.Identity, 1.19.0",
+            "protectedSnippet": "Azure.Identity, 1.13.2\n\nRecommendation:\n\nThis version takes a dependency on a deprecated version of MSAL .NET (Microsoft.Identity.Client).\nRemove Azure.Identity, and replace with new package Azure.Identity, 1.19.0",
+            "label": "Azure.Identity 1.13.2",
+            "properties": {
+              "PackageId": "Azure.Identity",
+              "PackageVersion": "1.13.2",
+              "PackageNewVersion": null,
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "32d0580e-db66-4c61-a679-b7641140215a",
           "ruleId": "Project.0002",
-          "projectPath": "sk-csharp-hello-world.csproj",
+          "projectPath": "sk_csharp_apim_demo\\sk_csharp_apim_demo.csproj",
           "state": "Active",
           "location": {
             "snippetModel": {
@@ -139,7 +243,7 @@
               "protected": "Current target framework: net8.0\nRecommended target framework: net10.0"
             },
             "kind": "File",
-            "path": "sk-csharp-hello-world.csproj",
+            "path": "sk_csharp_apim_demo\\sk_csharp_apim_demo.csproj",
             "snippet": "Current target framework: net8.0\nRecommended target framework: net10.0",
             "protectedSnippet": "Current target framework: net8.0\nRecommended target framework: net10.0",
             "properties": {
@@ -149,10 +253,553 @@
           }
         },
         {
-          "incidentId": "5f59a6ef-63fe-4d95-a7b1-72603e126238",
+          "incidentId": "28657395-1a00-4dfa-912d-efd463c37982",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: Message no longer duplicated in Console log output ",
+          "projectPath": "sk_csharp_apim_demo\\sk_csharp_apim_demo.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "builder\n        .SetMinimumLevel(LogLevel.Warning)\n        .AddConsole()\n        .AddDebug();",
+              "protected": "M:Microsoft.Extensions.Logging.ConsoleLoggerExtensions.AddConsole(Microsoft.Extensions.Logging.ILoggingBuilder)"
+            },
+            "kind": "File",
+            "path": "sk_csharp_apim_demo\\Program.cs",
+            "snippet": "builder\n        .SetMinimumLevel(LogLevel.Warning)\n        .AddConsole()\n        .AddDebug();",
+            "protectedSnippet": "M:Microsoft.Extensions.Logging.ConsoleLoggerExtensions.AddConsole(Microsoft.Extensions.Logging.ILoggingBuilder)",
+            "label": "M:Microsoft.Extensions.Logging.ConsoleLoggerExtensions.AddConsole(Microsoft.Extensions.Logging.ILoggingBuilder)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/extensions/10.0/console-json-logging-duplicate-messages.md",
+                "isCustom": false
+              }
+            ],
+            "line": 13,
+            "column": 4
+          }
+        }
+      ],
+      "features": []
+    },
+    {
+      "path": "sk-csharp-chatgpt-plugin\\azure-function\\sk-chatgpt-azure-function.csproj",
+      "startingProject": true,
+      "issues": 6,
+      "storyPoints": 14,
+      "properties": {
+        "appName": "sk-chatgpt-azure-function",
+        "projectKind": "AzureFunctions",
+        "frameworks": [
+          "net8.0"
+        ],
+        "languages": [
+          "C#"
+        ],
+        "tools": [
+          "MSBuild"
+        ],
+        "isSdkStyle": true,
+        "numberOfFiles": 14,
+        "numberOfCodeFiles": 11,
+        "linesTotal": 50668,
+        "linesOfCode": 437,
+        "totalApiScanned": 426,
+        "minLinesOfCodeToChange": 5,
+        "maxLinesOfCodeToChange": 5
+      },
+      "ruleInstances": [
+        {
+          "incidentId": "378c7374-cf47-4622-b344-c6709ad79b6b",
+          "ruleId": "AzureFunctionsUpgrade.0002",
+          "projectPath": "sk-csharp-chatgpt-plugin\\azure-function\\sk-chatgpt-azure-function.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "sk-csharp-chatgpt-plugin\\azure-function\\sk-chatgpt-azure-function.csproj"
+          }
+        },
+        {
+          "incidentId": "ecfcddea-b79e-4f41-884f-704cc0a8e27f",
+          "ruleId": "NuGet.0002",
+          "projectPath": "sk-csharp-chatgpt-plugin\\azure-function\\sk-chatgpt-azure-function.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.Extensions.Configuration.UserSecrets, 6.0.1\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration.UserSecrets, and replace with new package Microsoft.Extensions.Configuration.UserSecrets 10.0.5",
+              "protected": "Microsoft.Extensions.Configuration.UserSecrets, 6.0.1\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration.UserSecrets, and replace with new package Microsoft.Extensions.Configuration.UserSecrets 10.0.5"
+            },
+            "kind": "File",
+            "path": "sk-csharp-chatgpt-plugin\\azure-function\\sk-chatgpt-azure-function.csproj",
+            "snippet": "Microsoft.Extensions.Configuration.UserSecrets, 6.0.1\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration.UserSecrets, and replace with new package Microsoft.Extensions.Configuration.UserSecrets 10.0.5",
+            "protectedSnippet": "Microsoft.Extensions.Configuration.UserSecrets, 6.0.1\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration.UserSecrets, and replace with new package Microsoft.Extensions.Configuration.UserSecrets 10.0.5",
+            "label": "Microsoft.Extensions.Configuration.UserSecrets 6.0.1",
+            "properties": {
+              "PackageId": "Microsoft.Extensions.Configuration.UserSecrets",
+              "PackageVersion": "6.0.1",
+              "PackageNewVersion": "10.0.5",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "2ede84ae-0a35-430f-a5a1-eacddf412a4d",
+          "ruleId": "NuGet.0002",
+          "projectPath": "sk-csharp-chatgpt-plugin\\azure-function\\sk-chatgpt-azure-function.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.Azure.Functions.Worker.Extensions.Http, 3.0.13\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker.Extensions.Http, and replace with new package Microsoft.Azure.Functions.Worker.Extensions.Http 3.3.0",
+              "protected": "Microsoft.Azure.Functions.Worker.Extensions.Http, 3.0.13\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker.Extensions.Http, and replace with new package Microsoft.Azure.Functions.Worker.Extensions.Http 3.3.0"
+            },
+            "kind": "File",
+            "path": "sk-csharp-chatgpt-plugin\\azure-function\\sk-chatgpt-azure-function.csproj",
+            "snippet": "Microsoft.Azure.Functions.Worker.Extensions.Http, 3.0.13\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker.Extensions.Http, and replace with new package Microsoft.Azure.Functions.Worker.Extensions.Http 3.3.0",
+            "protectedSnippet": "Microsoft.Azure.Functions.Worker.Extensions.Http, 3.0.13\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker.Extensions.Http, and replace with new package Microsoft.Azure.Functions.Worker.Extensions.Http 3.3.0",
+            "label": "Microsoft.Azure.Functions.Worker.Extensions.Http 3.0.13",
+            "properties": {
+              "PackageId": "Microsoft.Azure.Functions.Worker.Extensions.Http",
+              "PackageVersion": "3.0.13",
+              "PackageNewVersion": "3.3.0",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "e77bb91a-abb2-4d3f-a720-63e6e4aec439",
+          "ruleId": "NuGet.0002",
+          "projectPath": "sk-csharp-chatgpt-plugin\\azure-function\\sk-chatgpt-azure-function.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.Azure.Functions.Worker.Sdk, 1.12.0\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker.Sdk, and replace with new package Microsoft.Azure.Functions.Worker.Sdk 2.0.7",
+              "protected": "Microsoft.Azure.Functions.Worker.Sdk, 1.12.0\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker.Sdk, and replace with new package Microsoft.Azure.Functions.Worker.Sdk 2.0.7"
+            },
+            "kind": "File",
+            "path": "sk-csharp-chatgpt-plugin\\azure-function\\sk-chatgpt-azure-function.csproj",
+            "snippet": "Microsoft.Azure.Functions.Worker.Sdk, 1.12.0\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker.Sdk, and replace with new package Microsoft.Azure.Functions.Worker.Sdk 2.0.7",
+            "protectedSnippet": "Microsoft.Azure.Functions.Worker.Sdk, 1.12.0\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker.Sdk, and replace with new package Microsoft.Azure.Functions.Worker.Sdk 2.0.7",
+            "label": "Microsoft.Azure.Functions.Worker.Sdk 1.12.0",
+            "properties": {
+              "PackageId": "Microsoft.Azure.Functions.Worker.Sdk",
+              "PackageVersion": "1.12.0",
+              "PackageNewVersion": "2.0.7",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "a589079e-c832-4e16-b6c9-5581beaac122",
+          "ruleId": "NuGet.0002",
+          "projectPath": "sk-csharp-chatgpt-plugin\\azure-function\\sk-chatgpt-azure-function.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.Azure.Functions.Worker, 1.18.0\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker, and replace with new package Microsoft.Azure.Functions.Worker 2.51.0",
+              "protected": "Microsoft.Azure.Functions.Worker, 1.18.0\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker, and replace with new package Microsoft.Azure.Functions.Worker 2.51.0"
+            },
+            "kind": "File",
+            "path": "sk-csharp-chatgpt-plugin\\azure-function\\sk-chatgpt-azure-function.csproj",
+            "snippet": "Microsoft.Azure.Functions.Worker, 1.18.0\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker, and replace with new package Microsoft.Azure.Functions.Worker 2.51.0",
+            "protectedSnippet": "Microsoft.Azure.Functions.Worker, 1.18.0\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker, and replace with new package Microsoft.Azure.Functions.Worker 2.51.0",
+            "label": "Microsoft.Azure.Functions.Worker 1.18.0",
+            "properties": {
+              "PackageId": "Microsoft.Azure.Functions.Worker",
+              "PackageVersion": "1.18.0",
+              "PackageNewVersion": "2.51.0",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "17ff6d04-838a-47bd-bc0f-5c4c4c360e76",
+          "ruleId": "Project.0002",
+          "projectPath": "sk-csharp-chatgpt-plugin\\azure-function\\sk-chatgpt-azure-function.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Current target framework: net8.0\nRecommended target framework: net10.0",
+              "protected": "Current target framework: net8.0\nRecommended target framework: net10.0"
+            },
+            "kind": "File",
+            "path": "sk-csharp-chatgpt-plugin\\azure-function\\sk-chatgpt-azure-function.csproj",
+            "snippet": "Current target framework: net8.0\nRecommended target framework: net10.0",
+            "protectedSnippet": "Current target framework: net8.0\nRecommended target framework: net10.0",
+            "properties": {
+              "CurrentTargetFramework": "net8.0",
+              "RecommendedTargetFramework": "net10.0"
+            }
+          }
+        },
+        {
+          "incidentId": "a65655a9-07cd-48f1-916a-4f1aa8036a01",
           "ruleId": "Api.0001",
           "description": "Breaking change: DynamicallyAccessedMembers annotation removed from trim-unsafe configuration APIs ",
-          "projectPath": "sk-csharp-hello-world.csproj",
+          "projectPath": "sk-csharp-chatgpt-plugin\\azure-function\\sk-chatgpt-azure-function.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "return configuration.Get\u003CAppSettings\u003E()\n               ?? throw new InvalidDataException($\u0022Invalid app settings in \u0027{configFile}\u0027, please provide configuration settings using instructions in the README.\u0022);",
+              "protected": "M:Microsoft.Extensions.Configuration.ConfigurationBinder.Get\u0060\u00601(Microsoft.Extensions.Configuration.IConfiguration)"
+            },
+            "kind": "File",
+            "path": "sk-csharp-chatgpt-plugin\\azure-function\\Models\\AppSettings.cs",
+            "snippet": "return configuration.Get\u003CAppSettings\u003E()\n               ?? throw new InvalidDataException($\u0022Invalid app settings in \u0027{configFile}\u0027, please provide configuration settings using instructions in the README.\u0022);",
+            "protectedSnippet": "M:Microsoft.Extensions.Configuration.ConfigurationBinder.Get\u0060\u00601(Microsoft.Extensions.Configuration.IConfiguration)",
+            "label": "M:Microsoft.Extensions.Configuration.ConfigurationBinder.Get\u0060\u00601(Microsoft.Extensions.Configuration.IConfiguration)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/extensions/10.0/dynamically-accessed-members-configuration.md",
+                "isCustom": false
+              }
+            ],
+            "line": 54,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "64edb6b6-1ef7-47bd-842a-7caf253ae248",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: HostBuilder enables ValidateOnBuild/ValidateScopes in development environment ",
+          "projectPath": "sk-csharp-chatgpt-plugin\\azure-function\\sk-chatgpt-azure-function.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var host = new HostBuilder()\n    .ConfigureFunctionsWorkerDefaults()\n    .ConfigureServices(services =\u003E\n    {\n        services\n            .AddScoped\u003CIKernel\u003E((providers) =\u003E\n            {\n                // This will be called each time a new Kernel is needed\n\n                // Get a logger instance\n                ILogger\u003CIKernel\u003E logger = providers\n                    .GetRequiredService\u003CILoggerFactory\u003E()\n                    .CreateLogger\u003CIKernel\u003E();\n\n                // Register your AI Providers...\n                var appSettings = AppSettings.LoadSettings();\n                IKernel kernel = new KernelBuilder()\n                    .WithChatCompletionService(appSettings.Kernel)\n                    .WithLogger(logger)\n                    .Build();\n\n                // Load your semantic functions...\n                kernel.ImportPromptsFromDirectory(appSettings.AIPlugin.NameForModel, semanticFunctionsFolder);\n\n                return kernel;\n            })\n            .AddScoped\u003CIAIPluginRunner, AIPluginRunner\u003E();\n    })\n    .Build();",
+              "protected": "T:Microsoft.Extensions.Hosting.HostBuilder"
+            },
+            "kind": "File",
+            "path": "sk-csharp-chatgpt-plugin\\azure-function\\Program.cs",
+            "snippet": "var host = new HostBuilder()\n    .ConfigureFunctionsWorkerDefaults()\n    .ConfigureServices(services =\u003E\n    {\n        services\n            .AddScoped\u003CIKernel\u003E((providers) =\u003E\n            {\n                // This will be called each time a new Kernel is needed\n\n                // Get a logger instance\n                ILogger\u003CIKernel\u003E logger = providers\n                    .GetRequiredService\u003CILoggerFactory\u003E()\n                    .CreateLogger\u003CIKernel\u003E();\n\n                // Register your AI Providers...\n                var appSettings = AppSettings.LoadSettings();\n                IKernel kernel = new KernelBuilder()\n                    .WithChatCompletionService(appSettings.Kernel)\n                    .WithLogger(logger)\n                    .Build();\n\n                // Load your semantic functions...\n                kernel.ImportPromptsFromDirectory(appSettings.AIPlugin.NameForModel, semanticFunctionsFolder);\n\n                return kernel;\n            })\n            .AddScoped\u003CIAIPluginRunner, AIPluginRunner\u003E();\n    })\n    .Build();",
+            "protectedSnippet": "T:Microsoft.Extensions.Hosting.HostBuilder",
+            "label": "T:Microsoft.Extensions.Hosting.HostBuilder",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/aspnet-core/9.0/hostbuilder-validation.md",
+                "isCustom": false
+              }
+            ],
+            "line": 12,
+            "column": 0
+          }
+        },
+        {
+          "incidentId": "3ed9bd06-0ea4-4e90-880c-5e8243be278b",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: URI length limits removed ",
+          "projectPath": "sk-csharp-chatgpt-plugin\\azure-function\\sk-chatgpt-azure-function.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var currentDomain = $\u0022{req.Url.Scheme}://{req.Url.Host}:{req.Url.Port}\u0022;",
+              "protected": "T:System.Uri"
+            },
+            "kind": "File",
+            "path": "sk-csharp-chatgpt-plugin\\azure-function\\AiPluginJson.cs",
+            "snippet": "var currentDomain = $\u0022{req.Url.Scheme}://{req.Url.Host}:{req.Url.Port}\u0022;",
+            "protectedSnippet": "T:System.Uri",
+            "label": "T:System.Uri",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/networking/10.0/uri-length-limits-removed.md",
+                "isCustom": false
+              }
+            ],
+            "line": 14,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "66cd3a20-504b-4d67-8d15-fe20024dcce9",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: URI length limits removed ",
+          "projectPath": "sk-csharp-chatgpt-plugin\\azure-function\\sk-chatgpt-azure-function.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var currentDomain = $\u0022{req.Url.Scheme}://{req.Url.Host}:{req.Url.Port}\u0022;",
+              "protected": "T:System.Uri"
+            },
+            "kind": "File",
+            "path": "sk-csharp-chatgpt-plugin\\azure-function\\AiPluginJson.cs",
+            "snippet": "var currentDomain = $\u0022{req.Url.Scheme}://{req.Url.Host}:{req.Url.Port}\u0022;",
+            "protectedSnippet": "T:System.Uri",
+            "label": "T:System.Uri",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/networking/10.0/uri-length-limits-removed.md",
+                "isCustom": false
+              }
+            ],
+            "line": 14,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "da6f6bd9-a089-4829-85b2-773238bee8f2",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: URI length limits removed ",
+          "projectPath": "sk-csharp-chatgpt-plugin\\azure-function\\sk-chatgpt-azure-function.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var currentDomain = $\u0022{req.Url.Scheme}://{req.Url.Host}:{req.Url.Port}\u0022;",
+              "protected": "T:System.Uri"
+            },
+            "kind": "File",
+            "path": "sk-csharp-chatgpt-plugin\\azure-function\\AiPluginJson.cs",
+            "snippet": "var currentDomain = $\u0022{req.Url.Scheme}://{req.Url.Host}:{req.Url.Port}\u0022;",
+            "protectedSnippet": "T:System.Uri",
+            "label": "T:System.Uri",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/networking/10.0/uri-length-limits-removed.md",
+                "isCustom": false
+              }
+            ],
+            "line": 14,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "863ed247-4473-4df1-9cb7-011cb0ebb375",
+          "ruleId": "NuGet.0003",
+          "projectPath": "sk-csharp-chatgpt-plugin\\azure-function\\sk-chatgpt-azure-function.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.Azure.WebJobs.Extensions.OpenApi, 2.0.0-preview2\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+              "protected": "Microsoft.Azure.WebJobs.Extensions.OpenApi, 2.0.0-preview2\n\nRecommendation:\n\nPackage functionality included with new framework reference"
+            },
+            "kind": "File",
+            "path": "sk-csharp-chatgpt-plugin\\azure-function\\sk-chatgpt-azure-function.csproj",
+            "snippet": "Microsoft.Azure.WebJobs.Extensions.OpenApi, 2.0.0-preview2\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "protectedSnippet": "Microsoft.Azure.WebJobs.Extensions.OpenApi, 2.0.0-preview2\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "label": "Microsoft.Azure.WebJobs.Extensions.OpenApi 2.0.0-preview2",
+            "properties": {
+              "PackageId": "Microsoft.Azure.WebJobs.Extensions.OpenApi",
+              "PackageVersion": "2.0.0-preview2",
+              "PackageNewVersion": null,
+              "PackageReplacements": null
+            }
+          }
+        }
+      ],
+      "features": []
+    },
+    {
+      "path": "sk-csharp-azure-functions\\sk-csharp-azure-functions.csproj",
+      "startingProject": true,
+      "issues": 6,
+      "storyPoints": 13,
+      "properties": {
+        "appName": "sk-csharp-azure-functions",
+        "projectKind": "AzureFunctions",
+        "frameworks": [
+          "net8.0"
+        ],
+        "languages": [
+          "C#"
+        ],
+        "tools": [
+          "MSBuild"
+        ],
+        "isSdkStyle": true,
+        "numberOfFiles": 11,
+        "numberOfCodeFiles": 9,
+        "linesTotal": 50340,
+        "linesOfCode": 338,
+        "totalApiScanned": 396,
+        "minLinesOfCodeToChange": 4,
+        "maxLinesOfCodeToChange": 4
+      },
+      "ruleInstances": [
+        {
+          "incidentId": "484426e6-9d2d-4452-b4ae-aefae50d18e7",
+          "ruleId": "AzureFunctionsUpgrade.0002",
+          "projectPath": "sk-csharp-azure-functions\\sk-csharp-azure-functions.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "sk-csharp-azure-functions\\sk-csharp-azure-functions.csproj"
+          }
+        },
+        {
+          "incidentId": "2207ae1e-6e4b-465b-bcd6-e982dbca4916",
+          "ruleId": "NuGet.0002",
+          "projectPath": "sk-csharp-azure-functions\\sk-csharp-azure-functions.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.Extensions.Configuration.UserSecrets, 6.0.1\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration.UserSecrets, and replace with new package Microsoft.Extensions.Configuration.UserSecrets 10.0.5",
+              "protected": "Microsoft.Extensions.Configuration.UserSecrets, 6.0.1\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration.UserSecrets, and replace with new package Microsoft.Extensions.Configuration.UserSecrets 10.0.5"
+            },
+            "kind": "File",
+            "path": "sk-csharp-azure-functions\\sk-csharp-azure-functions.csproj",
+            "snippet": "Microsoft.Extensions.Configuration.UserSecrets, 6.0.1\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration.UserSecrets, and replace with new package Microsoft.Extensions.Configuration.UserSecrets 10.0.5",
+            "protectedSnippet": "Microsoft.Extensions.Configuration.UserSecrets, 6.0.1\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration.UserSecrets, and replace with new package Microsoft.Extensions.Configuration.UserSecrets 10.0.5",
+            "label": "Microsoft.Extensions.Configuration.UserSecrets 6.0.1",
+            "properties": {
+              "PackageId": "Microsoft.Extensions.Configuration.UserSecrets",
+              "PackageVersion": "6.0.1",
+              "PackageNewVersion": "10.0.5",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "e46fa1c6-fddb-4deb-b892-c14a0ae634f3",
+          "ruleId": "NuGet.0002",
+          "projectPath": "sk-csharp-azure-functions\\sk-csharp-azure-functions.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.Azure.Functions.Worker.Extensions.Http, 3.0.13\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker.Extensions.Http, and replace with new package Microsoft.Azure.Functions.Worker.Extensions.Http 3.3.0",
+              "protected": "Microsoft.Azure.Functions.Worker.Extensions.Http, 3.0.13\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker.Extensions.Http, and replace with new package Microsoft.Azure.Functions.Worker.Extensions.Http 3.3.0"
+            },
+            "kind": "File",
+            "path": "sk-csharp-azure-functions\\sk-csharp-azure-functions.csproj",
+            "snippet": "Microsoft.Azure.Functions.Worker.Extensions.Http, 3.0.13\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker.Extensions.Http, and replace with new package Microsoft.Azure.Functions.Worker.Extensions.Http 3.3.0",
+            "protectedSnippet": "Microsoft.Azure.Functions.Worker.Extensions.Http, 3.0.13\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker.Extensions.Http, and replace with new package Microsoft.Azure.Functions.Worker.Extensions.Http 3.3.0",
+            "label": "Microsoft.Azure.Functions.Worker.Extensions.Http 3.0.13",
+            "properties": {
+              "PackageId": "Microsoft.Azure.Functions.Worker.Extensions.Http",
+              "PackageVersion": "3.0.13",
+              "PackageNewVersion": "3.3.0",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "26510190-7a66-4ff9-ad9a-40db99223d40",
+          "ruleId": "NuGet.0002",
+          "projectPath": "sk-csharp-azure-functions\\sk-csharp-azure-functions.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.Azure.Functions.Worker.Sdk, 1.12.0\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker.Sdk, and replace with new package Microsoft.Azure.Functions.Worker.Sdk 2.0.7",
+              "protected": "Microsoft.Azure.Functions.Worker.Sdk, 1.12.0\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker.Sdk, and replace with new package Microsoft.Azure.Functions.Worker.Sdk 2.0.7"
+            },
+            "kind": "File",
+            "path": "sk-csharp-azure-functions\\sk-csharp-azure-functions.csproj",
+            "snippet": "Microsoft.Azure.Functions.Worker.Sdk, 1.12.0\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker.Sdk, and replace with new package Microsoft.Azure.Functions.Worker.Sdk 2.0.7",
+            "protectedSnippet": "Microsoft.Azure.Functions.Worker.Sdk, 1.12.0\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker.Sdk, and replace with new package Microsoft.Azure.Functions.Worker.Sdk 2.0.7",
+            "label": "Microsoft.Azure.Functions.Worker.Sdk 1.12.0",
+            "properties": {
+              "PackageId": "Microsoft.Azure.Functions.Worker.Sdk",
+              "PackageVersion": "1.12.0",
+              "PackageNewVersion": "2.0.7",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "febe4b08-73d2-4d48-ac35-8d700e115e90",
+          "ruleId": "NuGet.0002",
+          "projectPath": "sk-csharp-azure-functions\\sk-csharp-azure-functions.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.Azure.Functions.Worker, 1.18.0\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker, and replace with new package Microsoft.Azure.Functions.Worker 2.51.0",
+              "protected": "Microsoft.Azure.Functions.Worker, 1.18.0\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker, and replace with new package Microsoft.Azure.Functions.Worker 2.51.0"
+            },
+            "kind": "File",
+            "path": "sk-csharp-azure-functions\\sk-csharp-azure-functions.csproj",
+            "snippet": "Microsoft.Azure.Functions.Worker, 1.18.0\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker, and replace with new package Microsoft.Azure.Functions.Worker 2.51.0",
+            "protectedSnippet": "Microsoft.Azure.Functions.Worker, 1.18.0\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker, and replace with new package Microsoft.Azure.Functions.Worker 2.51.0",
+            "label": "Microsoft.Azure.Functions.Worker 1.18.0",
+            "properties": {
+              "PackageId": "Microsoft.Azure.Functions.Worker",
+              "PackageVersion": "1.18.0",
+              "PackageNewVersion": "2.51.0",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "a0ad6d33-b814-4566-a09e-518399328ed1",
+          "ruleId": "Project.0002",
+          "projectPath": "sk-csharp-azure-functions\\sk-csharp-azure-functions.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Current target framework: net8.0\nRecommended target framework: net10.0",
+              "protected": "Current target framework: net8.0\nRecommended target framework: net10.0"
+            },
+            "kind": "File",
+            "path": "sk-csharp-azure-functions\\sk-csharp-azure-functions.csproj",
+            "snippet": "Current target framework: net8.0\nRecommended target framework: net10.0",
+            "protectedSnippet": "Current target framework: net8.0\nRecommended target framework: net10.0",
+            "properties": {
+              "CurrentTargetFramework": "net8.0",
+              "RecommendedTargetFramework": "net10.0"
+            }
+          }
+        },
+        {
+          "incidentId": "646c955c-6d1c-4935-bfb2-960d429835dd",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: Message no longer duplicated in Console log output ",
+          "projectPath": "sk-csharp-azure-functions\\sk-csharp-azure-functions.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "builder\n                .SetMinimumLevel(kernelSettings.LogLevel ?? LogLevel.Warning)\n                .AddConsole()\n                .AddDebug();",
+              "protected": "M:Microsoft.Extensions.Logging.ConsoleLoggerExtensions.AddConsole(Microsoft.Extensions.Logging.ILoggingBuilder)"
+            },
+            "kind": "File",
+            "path": "sk-csharp-azure-functions\\Program.cs",
+            "snippet": "builder\n                .SetMinimumLevel(kernelSettings.LogLevel ?? LogLevel.Warning)\n                .AddConsole()\n                .AddDebug();",
+            "protectedSnippet": "M:Microsoft.Extensions.Logging.ConsoleLoggerExtensions.AddConsole(Microsoft.Extensions.Logging.ILoggingBuilder)",
+            "label": "M:Microsoft.Extensions.Logging.ConsoleLoggerExtensions.AddConsole(Microsoft.Extensions.Logging.ILoggingBuilder)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/extensions/10.0/console-json-logging-duplicate-messages.md",
+                "isCustom": false
+              }
+            ],
+            "line": 49,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "974e7897-2ba6-4d77-8a30-8f376cbbe124",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: HostBuilder enables ValidateOnBuild/ValidateScopes in development environment ",
+          "projectPath": "sk-csharp-azure-functions\\sk-csharp-azure-functions.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var host = new HostBuilder()\n            .ConfigureFunctionsWorkerDefaults()\n            .ConfigureAppConfiguration(configuration =\u003E\n            {\n                var config = configuration.SetBasePath(Directory.GetCurrentDirectory())\n                    .AddJsonFile(\u0022local.settings.json\u0022, optional: true, reloadOnChange: true);\n\n                var builtConfig = config.Build();\n            })\n            .ConfigureServices(services =\u003E\n            {\n                services.AddSingleton\u003CIOpenApiConfigurationOptions\u003E(_ =\u003E s_apiConfigOptions);\n                services.AddTransient((provider) =\u003E CreateKernel(provider));\n\n\n                // return JSON with expected lowercase naming\n                services.Configure\u003CJsonSerializerOptions\u003E(options =\u003E\n                {\n                    options.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;\n                });\n            })\n            .Build();",
+              "protected": "T:Microsoft.Extensions.Hosting.HostBuilder"
+            },
+            "kind": "File",
+            "path": "sk-csharp-azure-functions\\Program.cs",
+            "snippet": "var host = new HostBuilder()\n            .ConfigureFunctionsWorkerDefaults()\n            .ConfigureAppConfiguration(configuration =\u003E\n            {\n                var config = configuration.SetBasePath(Directory.GetCurrentDirectory())\n                    .AddJsonFile(\u0022local.settings.json\u0022, optional: true, reloadOnChange: true);\n\n                var builtConfig = config.Build();\n            })\n            .ConfigureServices(services =\u003E\n            {\n                services.AddSingleton\u003CIOpenApiConfigurationOptions\u003E(_ =\u003E s_apiConfigOptions);\n                services.AddTransient((provider) =\u003E CreateKernel(provider));\n\n\n                // return JSON with expected lowercase naming\n                services.Configure\u003CJsonSerializerOptions\u003E(options =\u003E\n                {\n                    options.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;\n                });\n            })\n            .Build();",
+            "protectedSnippet": "T:Microsoft.Extensions.Hosting.HostBuilder",
+            "label": "T:Microsoft.Extensions.Hosting.HostBuilder",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/aspnet-core/9.0/hostbuilder-validation.md",
+                "isCustom": false
+              }
+            ],
+            "line": 17,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "6f3e9381-d88c-4fc4-9117-1294939acdb8",
+          "ruleId": "Api.0001",
+          "description": "Breaking change: DynamicallyAccessedMembers annotation removed from trim-unsafe configuration APIs ",
+          "projectPath": "sk-csharp-azure-functions\\sk-csharp-azure-functions.csproj",
           "state": "Active",
           "location": {
             "snippetModel": {
@@ -160,7 +807,7 @@
               "protected": "M:Microsoft.Extensions.Configuration.ConfigurationBinder.Get\u0060\u00601(Microsoft.Extensions.Configuration.IConfiguration)"
             },
             "kind": "File",
-            "path": "config\\KernelSettings.cs",
+            "path": "sk-csharp-azure-functions\\config\\KernelSettings.cs",
             "snippet": "return configuration.Get\u003CKernelSettings\u003E()\n               ?? throw new InvalidDataException(\u0022Invalid semantic kernel settings in user secrets, please provide configuration settings using instructions in the README.\u0022);",
             "protectedSnippet": "M:Microsoft.Extensions.Configuration.ConfigurationBinder.Get\u0060\u00601(Microsoft.Extensions.Configuration.IConfiguration)",
             "label": "M:Microsoft.Extensions.Configuration.ConfigurationBinder.Get\u0060\u00601(Microsoft.Extensions.Configuration.IConfiguration)",
@@ -171,15 +818,15 @@
                 "isCustom": false
               }
             ],
-            "line": 89,
+            "line": 87,
             "column": 8
           }
         },
         {
-          "incidentId": "57e68e18-8e12-4ce7-911a-8e6769cf5bc0",
+          "incidentId": "d52d1761-a863-44a0-91b4-4a12f41f7009",
           "ruleId": "Api.0001",
           "description": "Breaking change: DynamicallyAccessedMembers annotation removed from trim-unsafe configuration APIs ",
-          "projectPath": "sk-csharp-hello-world.csproj",
+          "projectPath": "sk-csharp-azure-functions\\sk-csharp-azure-functions.csproj",
           "state": "Active",
           "location": {
             "snippetModel": {
@@ -187,7 +834,7 @@
               "protected": "M:Microsoft.Extensions.Configuration.ConfigurationBinder.Get\u0060\u00601(Microsoft.Extensions.Configuration.IConfiguration)"
             },
             "kind": "File",
-            "path": "config\\KernelSettings.cs",
+            "path": "sk-csharp-azure-functions\\config\\KernelSettings.cs",
             "snippet": "return configuration.Get\u003CKernelSettings\u003E()\n               ?? throw new InvalidDataException($\u0022Invalid semantic kernel settings in \u0027{configFile}\u0027, please provide configuration settings using instructions in the README.\u0022);",
             "protectedSnippet": "M:Microsoft.Extensions.Configuration.ConfigurationBinder.Get\u0060\u00601(Microsoft.Extensions.Configuration.IConfiguration)",
             "label": "M:Microsoft.Extensions.Configuration.ConfigurationBinder.Get\u0060\u00601(Microsoft.Extensions.Configuration.IConfiguration)",
@@ -198,8 +845,139 @@
                 "isCustom": false
               }
             ],
-            "line": 76,
+            "line": 74,
             "column": 8
+          }
+        },
+        {
+          "incidentId": "ec49c2d6-0b5e-45fb-b323-63e254d9768a",
+          "ruleId": "NuGet.0003",
+          "projectPath": "sk-csharp-azure-functions\\sk-csharp-azure-functions.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.Azure.WebJobs.Extensions.OpenApi, 2.0.0-preview2\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+              "protected": "Microsoft.Azure.WebJobs.Extensions.OpenApi, 2.0.0-preview2\n\nRecommendation:\n\nPackage functionality included with new framework reference"
+            },
+            "kind": "File",
+            "path": "sk-csharp-azure-functions\\sk-csharp-azure-functions.csproj",
+            "snippet": "Microsoft.Azure.WebJobs.Extensions.OpenApi, 2.0.0-preview2\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "protectedSnippet": "Microsoft.Azure.WebJobs.Extensions.OpenApi, 2.0.0-preview2\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "label": "Microsoft.Azure.WebJobs.Extensions.OpenApi 2.0.0-preview2",
+            "properties": {
+              "PackageId": "Microsoft.Azure.WebJobs.Extensions.OpenApi",
+              "PackageVersion": "2.0.0-preview2",
+              "PackageNewVersion": null,
+              "PackageReplacements": null
+            }
+          }
+        }
+      ],
+      "features": []
+    },
+    {
+      "path": "sk-csharp-console-chat\\sk-csharp-console-chat.csproj",
+      "startingProject": true,
+      "issues": 0,
+      "storyPoints": 0,
+      "properties": {
+        "appName": "sk-csharp-console-chat",
+        "projectKind": "DotNetCoreApp",
+        "frameworks": [
+          "net10.0"
+        ],
+        "languages": [
+          "C#"
+        ],
+        "tools": [
+          "MSBuild"
+        ],
+        "isSdkStyle": true,
+        "numberOfFiles": 6,
+        "numberOfCodeFiles": 6,
+        "linesTotal": 286,
+        "linesOfCode": 286,
+        "totalApiScanned": 0,
+        "minLinesOfCodeToChange": 0,
+        "maxLinesOfCodeToChange": 0
+      },
+      "ruleInstances": [],
+      "features": []
+    },
+    {
+      "path": "sk-csharp-hello-world\\sk-csharp-hello-world.csproj",
+      "startingProject": true,
+      "issues": 0,
+      "storyPoints": 0,
+      "properties": {
+        "appName": "sk-csharp-hello-world",
+        "projectKind": "DotNetCoreApp",
+        "frameworks": [
+          "net10.0"
+        ],
+        "languages": [
+          "C#"
+        ],
+        "tools": [
+          "MSBuild"
+        ],
+        "isSdkStyle": true,
+        "numberOfFiles": 7,
+        "numberOfCodeFiles": 6,
+        "linesTotal": 252,
+        "linesOfCode": 239,
+        "totalApiScanned": 0,
+        "minLinesOfCodeToChange": 0,
+        "maxLinesOfCodeToChange": 0
+      },
+      "ruleInstances": [],
+      "features": []
+    },
+    {
+      "path": "sk-typescript-console-chat\\sk-typescript-console-chat.csproj",
+      "startingProject": true,
+      "issues": 1,
+      "storyPoints": 1,
+      "properties": {
+        "appName": "sk-typescript-console-chat",
+        "projectKind": "ClassLibrary",
+        "frameworks": [
+          "net8.0"
+        ],
+        "languages": [
+          "C#"
+        ],
+        "tools": [
+          "MSBuild"
+        ],
+        "isSdkStyle": true,
+        "numberOfFiles": 0,
+        "numberOfCodeFiles": 0,
+        "linesTotal": 0,
+        "linesOfCode": 0,
+        "totalApiScanned": 0,
+        "minLinesOfCodeToChange": 0,
+        "maxLinesOfCodeToChange": 0
+      },
+      "ruleInstances": [
+        {
+          "incidentId": "5c46a1ca-1103-48c1-8f3d-c0d64664d59b",
+          "ruleId": "Project.0002",
+          "projectPath": "sk-typescript-console-chat\\sk-typescript-console-chat.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Current target framework: net8.0\nRecommended target framework: net10.0",
+              "protected": "Current target framework: net8.0\nRecommended target framework: net10.0"
+            },
+            "kind": "File",
+            "path": "sk-typescript-console-chat\\sk-typescript-console-chat.csproj",
+            "snippet": "Current target framework: net8.0\nRecommended target framework: net10.0",
+            "protectedSnippet": "Current target framework: net8.0\nRecommended target framework: net10.0",
+            "properties": {
+              "CurrentTargetFramework": "net8.0",
+              "RecommendedTargetFramework": "net10.0"
+            }
           }
         }
       ],
@@ -207,20 +985,6 @@
     }
   ],
   "rules": {
-    "NuGet.0002": {
-      "id": "NuGet.0002",
-      "isFeature": false,
-      "description": "NuGet package upgrade is recommended for selected target framework.\n\nStandard .NET packages are recommended to have versions matching version of .NET that project targets.\n\nSome other packages also are known to work better for selected target frameworks.",
-      "label": "NuGet package upgrade is recommended",
-      "severity": "Potential",
-      "effort": 1,
-      "links": [
-        {
-          "url": "https://go.microsoft.com/fwlink/?linkid=2262530",
-          "isCustom": false
-        }
-      ]
-    },
     "Project.0002": {
       "id": "Project.0002",
       "isFeature": false,
@@ -241,6 +1005,60 @@
         }
       ]
     },
+    "NuGet.0002": {
+      "id": "NuGet.0002",
+      "isFeature": false,
+      "description": "NuGet package upgrade is recommended for selected target framework.\n\nStandard .NET packages are recommended to have versions matching version of .NET that project targets.\n\nSome other packages also are known to work better for selected target frameworks.",
+      "label": "NuGet package upgrade is recommended",
+      "severity": "Potential",
+      "effort": 1,
+      "links": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262530",
+          "isCustom": false
+        }
+      ]
+    },
+    "NuGet.0005": {
+      "id": "NuGet.0005",
+      "isFeature": false,
+      "description": "NuGet package is deprecated.\n\nGo to its documentation and if there is a guidance for replacement of functionality provided by this package.",
+      "label": "NuGet package is deprecated",
+      "severity": "Optional",
+      "effort": 1,
+      "links": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262531",
+          "isCustom": false
+        }
+      ]
+    },
+    "Api.0003": {
+      "id": "Api.0003",
+      "isFeature": false,
+      "description": "API has a behavioral change in selected .NET version: code and binaries may behave differently at runtime without needing recompilation, but the new behavior might be undesirable and require updates.",
+      "label": "Behavioral change in selected .NET version",
+      "severity": "Potential",
+      "effort": 1
+    },
+    "AzureFunctionsUpgrade.0002": {
+      "id": "AzureFunctionsUpgrade.0002",
+      "isFeature": true,
+      "description": "When migrating from in-proc to isolated, enable the use of the V2 model for Azure Functions projects and enable Application Insights.",
+      "label": "Enable the use of the V2 model for Azure Functions projects and enable Application Insights.",
+      "severity": "Mandatory",
+      "effort": 3,
+      "links": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2342114",
+          "isCustom": false
+        },
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2341915",
+          "isCustom": false
+        }
+      ]
+    },
     "Api.0001": {
       "id": "Api.0001",
       "isFeature": false,
@@ -252,6 +1070,20 @@
         {
           "title": "Breaking changes in .NET",
           "url": "https://go.microsoft.com/fwlink/?linkid=2262679",
+          "isCustom": false
+        }
+      ]
+    },
+    "NuGet.0003": {
+      "id": "NuGet.0003",
+      "isFeature": false,
+      "description": "NuGet package functionality is included with framework reference.\n\nPackage needs to be removed.",
+      "label": "NuGet package functionality is included with framework reference",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262609",
           "isCustom": false
         }
       ]
