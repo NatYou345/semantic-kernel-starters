@@ -1,10 +1,13 @@
 # .NET Version Upgrade
 
 ## Strategy
-<!-- To be determined during Planning stage -->
+**Selected**: All-at-Once — All projects upgraded simultaneously in a single operation.
+**Rationale**: 8 projects (6 needing changes), flat dependency graph, mostly straightforward TFM/package bumps with Azure Functions V2 migration as the main complexity.
 
 ### Execution Constraints
-<!-- To be determined during Planning stage -->
+- Single atomic upgrade — all TFM, package, and code changes applied together
+- Validate full solution build after upgrade with 0 errors
+- Testing comes after the atomic upgrade completes successfully
 
 ## Preferences
 - **Flow Mode**: Automatic
@@ -17,7 +20,8 @@
 - **Working branch**: upgrade-to-NET10-2
 
 ## Decisions
-<!-- Decisions will be logged here -->
+- All-at-Once strategy auto-selected: 8 projects, flat dependency graph, no phasing needed
+- No global.json present — no prerequisite config changes required
 
 ## Custom Instructions
 <!-- Task-specific overrides: "For {taskId}: {instruction}" -->
