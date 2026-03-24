@@ -1,25 +1,19 @@
-import sys
-import pathlib
+import os
 import azure.functions as func
 import logging
-import asyncio
-import semantic_kernel as sk
+from semantic_kernel import Kernel
 from semantic_kernel.connectors.ai.open_ai import (
-    AzureTextCompletion,
-    OpenAITextCompletion,
+    AzureChatCompletion,
+    OpenAIChatCompletion,
 )
-from semantic_kernel.orchestration.context_variables import ContextVariables
+from semantic_kernel.functions import KernelArguments
 
 useAzureOpenAI = True
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
 @app.route(route="skills/{skill_name}/functions/{function_name}")
-def execute_semantic_function(req: func.HttpRequest) -> func.HttpResponse:
-    # asyncio has problems running in existing event loops on windows and python 3.8 to 3.9.1
-    if sys.platform == "win32" and (3, 8, 0) <= sys.version_info < (3, 9, 1):
-        asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
-
+async def execute_semantic_function(req: func.HttpRequest) -> func.HttpResponse:
     skill_name = req.route_params.get('skill_name')
     function_name = req.route_params.get('function_name')
 
@@ -31,28 +25,26 @@ def execute_semantic_function(req: func.HttpRequest) -> func.HttpResponse:
 
     skills_directory = "skills"
     try:
-        skill = kernel.import_semantic_skill_from_directory(
-            skills_directory, skill_name
+        plugin = kernel.add_plugin(
+            parent_directory=skills_directory, plugin_name=skill_name
         )
-    except ValueError as e:
+    except Exception as e:
         logging.exception(f"Skill {skill_name} not found")
         return func.HttpResponse(f"Skill {skill_name} not found", status_code=404)
 
-    if function_name not in skill:
+    if function_name not in plugin:
         logging.error(f"Function {function_name} not found in skill {skill_name}")
         return func.HttpResponse(f"Function {function_name} not found in skill {skill_name}", status_code=404)
-    sk_function = skill[function_name]
+    sk_function = plugin[function_name]
 
     req_body = {}
     try:
         req_body = req.get_json()
     except ValueError:
-        logging.warning(f"No JSON body provided in request.")
+        logging.warning("No JSON body provided in request.")
 
-    context_variables = ContextVariables()
-    for k, v in req_body.items():
-        context_variables[k] = v
-    result = sk_function(variables=context_variables)
+    arguments = KernelArguments(**req_body)
+    result = await kernel.invoke(sk_function, arguments=arguments)
 
     logging.info(f"Result: {result}")
 
@@ -89,7 +81,7 @@ def get_logo(req: func.HttpRequest) -> func.HttpResponse:
     file_path = "./logo.png"
     with open(file_path, "rb") as file:
         file_data = file.read()
-    
+
     return func.HttpResponse(file_data, status_code=200, mimetype="image/png")
 
 @app.route("openapi.yaml", methods=["GET"])
@@ -99,26 +91,23 @@ def get_openapi(req: func.HttpRequest) -> func.HttpResponse:
         return func.HttpResponse(text, status_code=200, mimetype="text/yaml")
 
 def create_kernel():
-    kernel = sk.Kernel()
+    kernel = Kernel()
 
-    # Configure AI service used by the kernel. Load settings from the .env file.
     if useAzureOpenAI:
-        if pathlib.Path(".env").is_file():
-            deployment, api_key, endpoint = sk.azure_openai_settings_from_dot_env()
-        else:
-            # Get from Azure Function settings
-            logging.error(".env file not found")
-        kernel.add_text_completion_service(
-            "dv", AzureTextCompletion(deployment, endpoint, api_key)
+        kernel.add_service(
+            AzureChatCompletion(
+                deployment_name=os.environ.get("AZURE_OPENAI_DEPLOYMENT_NAME", ""),
+                endpoint=os.environ.get("AZURE_OPENAI_ENDPOINT", ""),
+                api_key=os.environ.get("AZURE_OPENAI_API_KEY", ""),
+            )
         )
     else:
-        if pathlib.Path(".env").is_file():
-            api_key, org_id = sk.openai_settings_from_dot_env()
-        else:
-            # Get from Azure Function settings
-            logging.error(".env file not found")
-        kernel.add_text_completion_service(
-            "dv", OpenAITextCompletion("text-davinci-003", api_key, org_id)
+        kernel.add_service(
+            OpenAIChatCompletion(
+                ai_model_id="gpt-4o-mini",
+                api_key=os.environ.get("OPENAI_API_KEY", ""),
+                org_id=os.environ.get("OPENAI_ORG_ID", ""),
+            )
         )
 
     return kernel
