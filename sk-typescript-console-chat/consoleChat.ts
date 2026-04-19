@@ -1,13 +1,15 @@
 ﻿// Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
+// @ts-ignore - generated files are produced at runtime by node-api-dotnet tooling.
 import "./bin/Microsoft.SemanticKernel.Core.js";
+// @ts-ignore - generated files are produced at runtime by node-api-dotnet tooling.
 import "./bin/Microsoft.SemanticKernel.Connectors.AI.OpenAI.js";
 import dotnet from "node-api-dotnet";
 import readline from "node:readline";
 import { consoleColours } from "./consoleColours.js";
 
-const SK = dotnet.Microsoft.SemanticKernel;
+const SK = (dotnet as any).Microsoft.SemanticKernel;
 
 // The JS marshaller does not yet support extension methods.
 const kernelBuilder = SK.OpenAIKernelBuilderExtensions.WithAzureChatCompletionService(
