@@ -4,10 +4,10 @@
     "build": "tsc --build"
   },
   "dependencies": {
-    "node-api-dotnet": "^0.4.4",
-    "typescript": "^5.2.2"
+    "node-api-dotnet": "^0.9.19",
+    "typescript": "^6.0.3"
   },
   "devDependencies": {
-    "@types/node": "^20.6.0"
+    "@types/node": "^25.6.0"
   }
 }

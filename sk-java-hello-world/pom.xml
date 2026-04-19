@@ -13,7 +13,7 @@
             <dependency>
                 <groupId>com.microsoft.semantic-kernel</groupId>
                 <artifactId>semantickernel-bom</artifactId>
-                <version>0.2.11-alpha</version>
+                <version>0.2.13-alpha</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
@@ -25,7 +25,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
-                <version>3.1.0</version>
+                <version>3.6.3</version>
                 <configuration>
                     <mainClass>com.microsoft.semantickernel.helloworld.Main</mainClass>
                 </configuration>
